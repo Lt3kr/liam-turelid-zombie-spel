@@ -20,30 +20,30 @@ while (i < 50)
 }
 
 
-function update()
+function update() // själva spelet //
 {
-  if(gamemode == 1)
+  if(gamemode == 1) // det är här  själva spacebartimer minskas alltså när den blit noll så blir zombierna normala igen //
       spacebartimer --;
 
   if (spacebartimer == 0)
       gamemode = 0;
 
-  if (gamemode == 0)
+  if (gamemode == 0) // det gör så att nästa gång är timern samma som den var förut //
     spacebartimer = reset;
   
-  clearScreen();
+  clearScreen(); 
   tid -= 1;
   var i = 0;
   Poäng += 0.05;
 
-  if (tid == 0)
+  if (tid == 0) //gör så att när tiden blir 0 så spawnas mer zombies då antal blir större //
   {
     antal++;
     tid = tidefterspawn;
     tidefterspawn -= 5;
   };
 
-  while (i < antal)
+  while (i < antal) // denna while sats gör så att antal är den mängd zombies som spawnas //
   {
     var zombie = zombies[i];
 
@@ -61,7 +61,7 @@ function update()
       else 
         zombie.y -= zombie.speed;
     }
-    if (keyboard.space)
+    if (keyboard.space) // space funktionen där man måste ha 10 poäng för att aktivera den och när man väl kan så sätts gamemodet till 1 och då blir zombiesarnas moveset totalt reversed //
     {
       if(Poäng >= 10){
         gamemode = 1;
@@ -69,7 +69,7 @@ function update()
       }
     }
 
-    if (gamemode == 1) {
+    if (gamemode == 1) { // som sagt så gör denna kod så att zombierna rör sig tvärtom vad de verkligen skall göra //
       if (zombie.x < mouse.x)
       zombie.x -= zombie.speed;
     else
