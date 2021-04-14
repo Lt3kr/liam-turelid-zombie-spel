@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    color: red;
+}
+
+a {
+    color: blue;
+}
+
+div {
+    text-align: center;
+    size: 20px;
+    align-self: center;
+    padding-top: 10%;
+}
