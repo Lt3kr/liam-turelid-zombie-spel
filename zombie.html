@@ -13,7 +13,7 @@ spacebartimer = 10;
 tidefterspawn = 49;
 while (i < 50)
 {
-  zombies.push({x: random(totalWidth),
+  zombies.push({x: random(totalWidth), // detta är som sagt orginal koden som ser till att det kommer mer zombies //
                 y: random(totalHeight),
                 speed: random(1,15)});
   i += 1;
@@ -31,9 +31,9 @@ function update() // själva spelet //
   if (gamemode == 0) // det gör så att nästa gång är timern samma som den var förut //
     spacebartimer = reset;
   
-  clearScreen(); 
+  clearScreen(); // vid varje clearScreen() så förändras poäng och tid som ser till att när tid >= 0 så spawnas mer zombies //
   tid -= 1;
-  var i = 0;
+  var i = 0; 
   Poäng += 0.05;
 
   if (tid == 0) //gör så att när tiden blir 0 så spawnas mer zombies då antal blir större //
@@ -50,7 +50,7 @@ function update() // själva spelet //
     picture(zombie.x, zombie.y, "Galen.png", 100, 100);
 
 
-    if(gamemode == 0) {
+    if(gamemode == 0) { // detta är den kod som ser till att zombierna går efter spelarna //
       if (zombie.x < mouse.x)
         zombie.x += zombie.speed;
       else
@@ -63,7 +63,7 @@ function update() // själva spelet //
     }
     if (keyboard.space) // space funktionen där man måste ha 10 poäng för att aktivera den och när man väl kan så sätts gamemodet till 1 och då blir zombiesarnas moveset totalt reversed //
     {
-      if(Poäng >= 10){
+      if(Poäng >= 10){ // denna if sats ser till att kolla om man har en viss mängd poäng när man aktiverar space funktionen och sedan tar bort den mängd med poäng //
         gamemode = 1;
         Poäng = Poäng - 10;
       }
@@ -81,14 +81,14 @@ function update() // själva spelet //
       zombie.y += zombie.speed;
     }
 
-    if (distance(mouse, zombie) < 5)
+    if (distance(mouse, zombie) < 5) //Detta är även orginal kod från youtube videon som gör så att när man kommer nära zombies så slutar spelloopen och även ett alert meddelande kommer up//
     {
       alert("You're done!");
       stopUpdate();
     }
     i += 1;
   }
-  text(10,50,30, "Poäng " + Math.floor(Poäng), "red")
+  text(10,50,30, "Poäng " + Math.floor(Poäng), "red") // denna del visar poängen i en siffriga nummer istället för att att ha flera tusen decimaler //
   text(100,20,20, "press space to scare the zombies! But remember that it costs 10 points", "black")
 }
         </script>

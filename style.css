@@ -10,9 +10,11 @@ a {
     color: blue;
 }
 
-div {
+div { 
     text-align: center;
     size: 20px;
     align-self: center;
     padding-top: 10%;
 }
+
+/*Extremt simpel css kod för lite styling till menyn*/
