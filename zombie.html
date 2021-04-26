@@ -3,15 +3,15 @@
 <head>
     <script src="https://koda.nu/simple.js">
     var zombies = [];
-gamemode = 0;
-antal = 5;
-var i = 0;
-tid = 50;
-Poäng = 0;
-reset = 10;
-spacebartimer = 10;
+gamemode = 0; // har denna variabel för att byta mellan hur zombies går //
+antal = 5; // start antal med zombies //
+var i = 0; // detta är orginal koden //
+tid = 50; // tiden för att zombies ska spawnas
+Poäng = 0; // för att kunna spara poäng //
+reset = 10; // denna är igentligen poänglös men jag tänkte använda den i svårare modesen för att den alltid ska bli mindre därmed blir spacebartimern mindre //
+spacebartimer = 10; // hur länge du får "andas" //
 tidefterspawn = 49;
-while (i < 50)
+while (i < 50) 
 {
   zombies.push({x: random(totalWidth), // detta är som sagt orginal koden som ser till att det kommer mer zombies //
                 y: random(totalHeight),
@@ -47,7 +47,7 @@ function update() // själva spelet //
   {
     var zombie = zombies[i];
 
-    picture(zombie.x, zombie.y, "Galen.png", 100, 100);
+    picture(zombie.x, zombie.y, "Galen.png", 100, 100); // gör så att det blir bilden Galen.png på zombies och dem får storleken 100, 100 //
 
 
     if(gamemode == 0) { // detta är den kod som ser till att zombierna går efter spelarna //
@@ -81,7 +81,7 @@ function update() // själva spelet //
       zombie.y += zombie.speed;
     }
 
-    if (distance(mouse, zombie) < 5) //Detta är även orginal kod från youtube videon som gör så att när man kommer nära zombies så slutar spelloopen och även ett alert meddelande kommer up//
+    if (distance(mouse, zombie) < 5) // Detta är även orginal kod från youtube videon som gör så att när man kommer nära zombies så slutar spelloopen och även ett alert meddelande kommer up //
     {
       alert("You're done!");
       stopUpdate();
